@@ -1,4 +1,15 @@
-# Log2Csv
+![banner-log2csv](https://github.com/user-attachments/assets/2e1e0ba1-2c5c-478b-a20a-86eb33e2a938)
+
+<div align="center">
+
+[![GitHub license](https://img.shields.io/github/license/venis-majkofci/Log2Csv)](https://github.com/venis-majkofci/Log2Csv/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/venis-majkofci/Log2Csv)](https://github.com/venis-majkofci/Log2Csv/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/venis-majkofci/Log2Csv)](https://github.com/venis-majkofci/Log2Csv/network)
+[![GitHub issues](https://img.shields.io/github/issues/venis-majkofci/Log2Csv)](https://github.com/venis-majkofci/Log2Csv/issues)
+[![GitHub contributors](https://img.shields.io/github/contributors/venis-majkofci/Log2Csv)](https://github.com/venis-majkofci/Log2Csv/graphs/contributors)
+[![Built with PowerShell](https://img.shields.io/badge/Built%20with-PowerShell-blue)](https://www.electronjs.org/)
+[![Buy Me A Coffee](https://img.shields.io/badge/Support-Buy%20Me%20A%20Coffee-orange)](https://www.buymeacoffee.com/venis)
+</div>
 
 **Log2Csv** is a PowerShell script designed to convert changelogs into structured CSV files. It is particularly useful for extracting and organizing changelog data from various formats, making it easier to analyze and process.
 
