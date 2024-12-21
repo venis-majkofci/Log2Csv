@@ -5,6 +5,7 @@
 [![GitHub license](https://img.shields.io/github/license/venis-majkofci/Log2Csv)](https://github.com/venis-majkofci/Log2Csv/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/venis-majkofci/Log2Csv)](https://github.com/venis-majkofci/Log2Csv/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/venis-majkofci/Log2Csv)](https://github.com/venis-majkofci/Log2Csv/network)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/venis-majkofci/Log2Csv)
 [![GitHub issues](https://img.shields.io/github/issues/venis-majkofci/Log2Csv)](https://github.com/venis-majkofci/Log2Csv/issues)
 [![GitHub contributors](https://img.shields.io/github/contributors/venis-majkofci/Log2Csv)](https://github.com/venis-majkofci/Log2Csv/graphs/contributors)
 [![Built with PowerShell](https://img.shields.io/badge/Built%20with-PowerShell-blue)](https://www.electronjs.org/)
