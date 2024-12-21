@@ -1,0 +1,221 @@
+{
+    "azurerm-v3": {
+        "changelog-url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/CHANGELOG-v3.md",
+        "regex-patterns": {
+            "version-line": "^## \\d+\\.\\d+\\.\\d+ \\([A-Za-z]+ \\d{1,2}, \\d{4}\\)",
+            "version": "(\\d+\\.\\d+\\.\\d+)",
+            "change-categories": [
+                {
+                    "name": "__default",
+                    "patterns": {
+                        "match": {
+                            "name": "`([^`]+)`",
+                            "description": "(?<=- ).*"
+                        },
+                        "replace": {
+                            "name": "`"
+                        }
+                    }
+                },
+                {
+                    "name": "FEATURES",
+                    "name-pattern": "^FEATURES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "`([^`]+)`",
+                            "description": "\\*([^\\`]+)"
+                        },
+                        "replace": {
+                            "name": "`",
+                            "description": "^\\s+|\\s+$|[*:]"
+                        }
+                    }
+                },
+                {
+                    "name": "UPGRADE NOTES",
+                    "name-pattern": "^UPGRADE NOTES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "description": ".*"
+                        }
+                    }
+                },
+                {
+                    "name": "DEPRECATIONS",
+                    "name-pattern": "^DEPRECATION[Ss]?$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "ENHANCEMENTS",
+                    "name-pattern": "^ENHANCEMENTS$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "BUG FIXES",
+                    "name-pattern": "^BUG FIXES$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "BREAKING CHANGE",
+                    "name-pattern": "^DEPRECATION[Ss]?$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "BREAKING CHANGES",
+                    "name-pattern": "^BREAKING CHANGES$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "NOTES",
+                    "name-pattern": "^NOTES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "description": ".*"
+                        }
+                    }
+                }
+            ],
+            "specials": [
+                "^[^*].*"
+            ],
+            "ignore": [
+                "---"
+            ]
+        }
+    },
+    "checkov": {
+        "changelog-url": "https://raw.githubusercontent.com/bridgecrewio/checkov/refs/heads/main/CHANGELOG.md",
+        "regex-patterns": {
+            "version-line": "^## \\[\\d+\\.\\d+\\.\\d+\\]\\(https:\/\/github\\.com\/.+?\\) - \\d{4}-\\d{2}-\\d{2}$",
+            "version": "(\\d+\\.\\d+\\.\\d+)",
+            "change-categories": [
+                {
+                    "name": "__default",
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=\\*\\*)(.*?)(?=:\\*\\*)",
+                            "description": ":\\*\\*(.*)"
+                        },
+                        "replace": {
+                            "description": ":\\*\\*"
+                        }
+                    }
+                },
+                {
+                    "name": "Feature",
+                    "name-pattern": "^Feature$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Bug Fix",
+                    "name-pattern": "^Bug Fix$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Documentation",
+                    "name-pattern": "^Documentation$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Platform",
+                    "name-pattern": "^Platform$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Breaking Change",
+                    "name-pattern": "^Breaking Change$",
+                    "default-pattern": true
+                }
+            ],
+            "specials": [],
+            "ignore": [
+                "# CHANGELOG",
+                "## \\[Unreleased\\]",
+                "- no noteworthy changes"
+            ]
+        }
+    },
+    "gitlab-v17": {
+        "changelog-url": "https://gitlab.com/gitlab-org/gitlab/-/raw/master/CHANGELOG.md",
+        "regex-patterns": {
+            "version-line": "^## \\d+\\.\\d+\\.\\d+ \\(\\d{4}-\\d{2}-\\d{2}\\)",
+            "version": "(\\d+\\.\\d+\\.\\d+)",
+            "change-categories": [
+                {
+                    "name": "__default",
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=- \\[)(.*?)(?=\\])",
+                            "description": ".*"
+                        },
+                        "replace": {
+                            "description": "^- \\[[^\\]]+\\]"
+                        }
+                    }
+                },
+                {
+                    "name": "Added",
+                    "name-pattern": "^Added(?= \\d* \\w*$)",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Fixed",
+                    "name-pattern": "^Fixed(?= \\d* \\w*$)",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Changed",
+                    "name-pattern": "^Changed(?= \\d* \\w*$)",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Deprecated",
+                    "name-pattern": "^Deprecated(?= \\d* \\w*$)",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Removed",
+                    "name-pattern": "^Removed(?= \\d* \\w*$)",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Security",
+                    "name-pattern": "^Security(?= \\d* \\w*$)",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Performance",
+                    "name-pattern": "^Performance(?= \\d* \\w*$)",
+                    "default-pattern": true
+                },
+                {
+                    "name": "Other",
+                    "name-pattern": "^Other(?= \\d* \\w*$)",
+                    "default-pattern": true
+                },
+                {
+                    "name": "EE",
+                    "name-pattern": "^EE(?= \\d* \\w*$)",
+                    "default-pattern": true
+                },
+                {
+                    "name": "fix",
+                    "name-pattern": "^fix(?= \\d* \\w*$)",
+                    "default-pattern": true
+                }
+            ],
+            "specials": [],
+            "ignore": [
+                "\\*\\*Note:\\*\\* This file is automatically generated. Please see the \\[developer",
+                "documentation\\]\\(doc\/development\/changelog.md\\) for instructions on adding your own",
+                "entry\\.",
+                "No changes\\.",
+                "^## \\d+\\.\\d+\\.\\d+ through \\d+\\.\\d+\\.\\d+",
+                "^- See \\["
+            ]
+        }
+    }
+}

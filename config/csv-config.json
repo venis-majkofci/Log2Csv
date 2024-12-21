@@ -1,0 +1,9 @@
+{
+    "columns-names": {
+        "version": "Version",
+        "update-type": "Update type",
+        "resource": "Resource",
+        "description": "Description"
+    },
+    "file-prefix": "changelog"
+}
