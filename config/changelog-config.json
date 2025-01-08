@@ -58,8 +58,95 @@
                     "default-pattern": true
                 },
                 {
-                    "name": "BREAKING CHANGE",
+                    "name": "BREAKING CHANGES",
+                    "name-pattern": "^BREAKING CHANGES$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "NOTES",
+                    "name-pattern": "^NOTES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "description": ".*"
+                        }
+                    }
+                }
+            ],
+            "specials": [
+                "^[^*].*"
+            ],
+            "ignore": [
+                "---"
+            ]
+        }
+    },
+    "azurerm-v4": {
+        "changelog-url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/CHANGELOG.md",
+        "regex-patterns": {
+            "version-line": "^## \\d+\\.\\d+\\.\\d+ \\([A-Za-z]+ \\d{1,2}, \\d{4}\\)",
+            "version": "(\\d+\\.\\d+\\.\\d+)",
+            "change-categories": [
+                {
+                    "name": "__default",
+                    "patterns": {
+                        "match": {
+                            "name": "`([^`]+)`",
+                            "description": "(?<=- ).*"
+                        },
+                        "replace": {
+                            "name": "`"
+                        }
+                    }
+                },
+                {
+                    "name": "FEATURES",
+                    "name-pattern": "^FEATURES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "`([^`]+)`",
+                            "description": "\\*([^\\`]+)"
+                        },
+                        "replace": {
+                            "name": "`",
+                            "description": "^\\s+|\\s+$|[*:]"
+                        }
+                    }
+                },
+                {
+                    "name": "UPGRADE NOTES",
+                    "name-pattern": "^UPGRADE NOTES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "description": ".*"
+                        }
+                    }
+                },
+                {
+                    "name": "DEPRECATIONS",
                     "name-pattern": "^DEPRECATION[Ss]?$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "BUGS",
+                    "name-pattern": "^BUG[Ss]?$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "BUGS",
+                    "name-pattern": "^BUG[Ss]?$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "ENHANCEMENTS",
+                    "name-pattern": "^ENHANCEMENTS$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "BUG FIXES",
+                    "name-pattern": "^BUG FIXES$",
                     "default-pattern": true
                 },
                 {
@@ -82,7 +169,8 @@
                 "^[^*].*"
             ],
             "ignore": [
-                "---"
+                "---",
+                "^For information on changes"
             ]
         }
     },
