@@ -27,7 +27,8 @@
 
 | **Name** | **Major Version** | Repository | **Changelog URL** |
 | -------- | ----------------- | ---------- | ----------------- |
-| **azurerm-v3** | 3.x | [terraform-provider-azurerm](https://github.com/hashicorp/terraform-provider-azurerm) | [AzureRM Changelog](https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/CHANGELOG-v3.md) |
+| **azurerm-v3** | 3.x | [terraform-provider-azurerm](https://github.com/hashicorp/terraform-provider-azurerm) | [AzureRM v3 Changelog](https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/CHANGELOG-v3.md) |
+| **azurerm-v4** | 4.x | [terraform-provider-azurerm](https://github.com/hashicorp/terraform-provider-azurerm) | [AzureRM v4 Changelog](https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/CHANGELOG.md) |
 | **checkov** | All | [checkov](https://github.com/bridgecrewio/checkov/) | [Checkov Changelog](https://raw.githubusercontent.com/bridgecrewio/checkov/refs/heads/main/CHANGELOG.md) |
 | **gitlab-v17** | 17.x | [GitLab](https://gitlab.com/gitlab-org/gitlab/) | [GitLab Changelog](https://gitlab.com/gitlab-org/gitlab/-/raw/master/CHANGELOG.md) |
 
