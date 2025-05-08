@@ -4,6 +4,7 @@
         "regex-patterns": {
             "version-line": "^## \\d+\\.\\d+\\.\\d+ \\([A-Za-z]+ \\d{1,2}, \\d{4}\\)",
             "version": "(\\d+\\.\\d+\\.\\d+)",
+            "change-type": true,
             "change-categories": [
                 {
                     "name": "__default",
@@ -86,6 +87,7 @@
         "regex-patterns": {
             "version-line": "^## \\d+\\.\\d+\\.\\d+ \\([A-Za-z]+ \\d{1,2}, \\d{4}\\)",
             "version": "(\\d+\\.\\d+\\.\\d+)",
+            "change-type": true,
             "change-categories": [
                 {
                     "name": "__default",
@@ -179,6 +181,7 @@
         "regex-patterns": {
             "version-line": "^## \\[\\d+\\.\\d+\\.\\d+\\]\\(https:\/\/github\\.com\/.+?\\) - \\d{4}-\\d{2}-\\d{2}$",
             "version": "(\\d+\\.\\d+\\.\\d+)",
+            "change-type": true,
             "change-categories": [
                 {
                     "name": "__default",
@@ -231,6 +234,7 @@
         "regex-patterns": {
             "version-line": "^## \\d+\\.\\d+\\.\\d+ \\(\\d{4}-\\d{2}-\\d{2}\\)",
             "version": "(\\d+\\.\\d+\\.\\d+)",
+            "change-type": true,
             "change-categories": [
                 {
                     "name": "__default",

@@ -127,6 +127,7 @@ For an example of practical configuration go [here](.\config\changelog-config.js
         "regex-patterns": { // Patterns used to parse the changelog
             "version-line": "^## \\d+\\.\\d+\\.\\d+ \\([A-Za-z]+ \\d{1,2}, \\d{4}\\)", // Regex to identify version lines
             "version": "(\\d+\\.\\d+\\.\\d+)", // Regex to extract version numbers
+            "change-type": true, // Indicates whether the changelog includes explicit "change type" sections (e.g., "### Added", "### Fixed"). Set to true if such sections are present; otherwise, set to false to treat all entries as uncategorized.
             "change-categories": [ // Definitions for different change categories
                 {
                     "name": "__default", // Default category if no specific match
