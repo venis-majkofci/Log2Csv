@@ -31,6 +31,7 @@
 | **azurerm-v4** | 4.x | [terraform-provider-azurerm](https://github.com/hashicorp/terraform-provider-azurerm) | [AzureRM v4 Changelog](https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/CHANGELOG.md) |
 | **checkov** | All | [checkov](https://github.com/bridgecrewio/checkov/) | [Checkov Changelog](https://raw.githubusercontent.com/bridgecrewio/checkov/refs/heads/main/CHANGELOG.md) |
 | **gitlab-v17** | 17.x | [GitLab](https://gitlab.com/gitlab-org/gitlab/) | [GitLab Changelog](https://gitlab.com/gitlab-org/gitlab/-/raw/master/CHANGELOG.md) |
+| **helm-chart-sonarqube** | All | [helm-chart-sonarqube](https://github.com/SonarSource/helm-chart-sonarqube) | [helm-chart-sonarqube Changelog](https://github.com/SonarSource/helm-chart-sonarqube/blob/master/charts/sonarqube/CHANGELOG.md) |
 
 ## How It Works
 

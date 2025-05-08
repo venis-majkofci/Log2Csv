@@ -1,6 +1,11 @@
 # Changelog
 
-## [1.2.0] - 2025-05-08
+## [2.1.0] - 2025-05-08
+
+### Added
+- Support for `helm-chart-sonarqube` changelogs in `changelog-config.json`.
+
+## [2.0.0] - 2025-05-08
 
 ### Added
 - Introduced the `makeLog` function to centralize the parsing logic of changelog entries.
