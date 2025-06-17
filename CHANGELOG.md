@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.3.0] - 2025-06-17
+
+### Added
+- Support for `terraform-provider-azuread` changelogs in `changelog-config.json`.
+- 
 ## [2.2.1] - 2025-06-17
 
 ### Refactored
