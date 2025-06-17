@@ -329,5 +329,134 @@
                 "- no noteworthy changes"
             ]
         }
+    },
+    "terraform-provider-azuread": {
+        "changelog-url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azuread/refs/heads/main/CHANGELOG.md",
+        "regex-patterns": {
+            "version-line": "^## \\d+\\.\\d+\\.\\d+ \\([A-Za-z]{3,9} \\d{1,2}, \\d{4}\\)",
+            "version": "\\d+\\.\\d+\\.\\d+",
+            "change-categories": [
+                {
+                    "name": "__default",
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=`)[^`]+(?=`)",
+                            "description": "(?<=- ).*"
+                        }
+                    }
+                },
+                {
+                    "name": "N/D",
+                    "name-pattern": "__nd",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=`)[^`]+(?=`)",
+                            "description": "^\\* .*"
+                        },
+                        "replace": {
+                            "description": "^\\* "
+                        }
+                    }
+                },
+                {
+                    "name": "FEATURES",
+                    "name-pattern": "^FEATURES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "^\\*\\s*\\*{0,2}(.+?):\\*{0,2}",
+                            "description": "^\\* .*"
+                        },
+                        "replace": {
+                            "name": "[*:]",
+                            "description": "^\\*\\s*(.*?): "
+                        }
+                    }
+                },
+                {
+                    "name": "ENHANCEMENTS",
+                    "name-pattern": "^ENHANCEMENTS$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=`)[^`]+(?=`)",
+                            "description": "^\\* .*"
+                        },
+                        "replace": {
+                            "description": "^\\* "
+                        }
+                    }
+                },
+                {
+                    "name": "BUG FIXES",
+                    "name-pattern": "^BUG FIXES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=`)[^`]+(?=`)",
+                            "description": "^\\* .*"
+                        },
+                        "replace": {
+                            "description": "^\\* "
+                        }
+                    }
+                },
+                {
+                    "name": "IMPROVEMENTS",
+                    "name-pattern": "^IMPROVEMENTS$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=`)[^`]+(?=`)",
+                            "description": "^\\* .*"
+                        },
+                        "replace": {
+                            "description": "^\\* "
+                        }
+                    }
+                },
+                {
+                    "name": "NOTES",
+                    "name-pattern": "^NOTES$",
+                    "patterns": {
+                        "match": {
+                            "description": "^\\* .*"
+                        },
+                        "replace": {
+                            "description": "^\\* "
+                        }
+                    }
+                },
+                {
+                    "name": "BREAKING CHANGES",
+                    "name-pattern": "^BREAKING CHANGES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=`)[^`]+(?=`)",
+                            "description": "^\\* .*"
+                        },
+                        "replace": {
+                            "description": "^\\* "
+                        }
+                    }
+                },
+                {
+                    "name": "DEPRECATIONS",
+                    "name-pattern": "^DEPRECATIONS$",
+                    "default-pattern": true
+                },
+                {
+                    "name": "DEVELOPER NOTE",
+                    "name-pattern": "^DEVELOPER NOTE$",
+                    "default-pattern": true
+                }
+            ],
+            "specials": [],
+            "ignore": [
+                "Initial release of the Azure Active Directory provider - featuring resources split out from the AzureRM Provider."
+            ]
+        }
     }
 }
