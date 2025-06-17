@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.2.0] - 2025-06-17
+
+### Enhanced
+- Made change category detection more flexible: the parser now supports a mix of categorized and uncategorized entries within the same changelog.
+- Set default entry type to `"N/D"` when no change category is matched, enabling smoother fallback behavior.
+
+### Deprecated
+- The `"change-type"` config field is now ignored. It is still accepted in config files for backward compatibility but no longer affects parsing behavior.
+
 ## [2.1.0] - 2025-05-08
 
 ### Added
