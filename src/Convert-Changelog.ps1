@@ -21,6 +21,9 @@ try {
 
 Write-Log -message "[$($MyInvocation.MyCommand.Name)] Starting the changelog conversion process..." "Blue" -level 1
 
+# Checks if the given line matches any defined change category pattern.
+# Returns an object with `found = true` and the matching category name if a match is found.
+# Skips the "__default" category, which is used as a fallback and not meant for matching.
 function checkChangeCategory {
     param (
         [PSCustomObject]$changeCategorys,
@@ -48,6 +51,10 @@ function checkChangeCategory {
     return $res
 }
 
+# Parses a changelog line into a structured object with 'name' and 'description' fields
+# using the provided match and replace regex patterns.
+# The function applies name and description match patterns (if any), extracts the content,
+# and optionally applies replacement patterns to clean or reformat the extracted strings.
 function makeLog {
     param (
         [PSCustomObject]$patterns,
@@ -87,7 +94,7 @@ try {
 
 $changelog = @() # Initialize the processed changelog array
 $entry = New-Object PSObject
-$entryType = $null # Type of the current entry being processed
+$entryType = "N/D" # Type of the current entry being processed
 $regexs = $config."regex-patterns" # Retrieve regex patterns from config
 $curentVersion = ""
 
@@ -98,12 +105,7 @@ foreach($line in ($changelogRaw -split "\n")) {
         continue # Skip empty lines
     } 
 
-    # Check if the line matches a change category
-    if($regexs."change-type" -eq $true){
-        $changeCategoryInfo = checkChangeCategory $regexs."change-categories" $line
-    }else {
-        $entryType = "N/D"
-    }
+    $changeCategoryInfo = checkChangeCategory $regexs."change-categories" $line
     
     if($line -match $regexs."version-line") { # Check if $line is version
         $curentVersion = (($line -match $regexs.version) | Out-Null) + $matches[0]
@@ -123,9 +125,10 @@ foreach($line in ($changelogRaw -split "\n")) {
             $changelog += $entry
         }
 
-        # Initialize a new entry for this version
+        # Initialize a new entry for this version and sets the default change type to "N/D"
         $entry = New-Object PSObject
         $entry | Add-Member -Type NoteProperty -Name "version" -Value $curentVersion
+        $entryType = "N/D"
 
     } elseif($changeCategoryInfo.found) { # Check if $line is a change category
         $entryType = $changeCategoryInfo.name
