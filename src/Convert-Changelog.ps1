@@ -51,29 +51,6 @@ function checkChangeCategory {
     return $res
 }
 
-# Parses a changelog line into a structured object with 'name' and 'description' fields
-# using the provided match and replace regex patterns.
-# The function applies name and description match patterns (if any), extracts the content,
-# and optionally applies replacement patterns to clean or reformat the extracted strings.
-function makeLog {
-    param (
-        [PSCustomObject]$patterns,
-        [string]$line 
-    )
-
-    $nameMatchPattern = $patterns.match?.name ?? ""
-    $descriptionMatchPattern = $patterns.match?.description ?? ""
-    $nameReplacePattern = $patterns.replace?.name ?? ""
-    $descriptionReplacePattern = $patterns.replace?.description ?? ""
-
-    $res = [PSCustomObject]@{
-        name = ((($line -match $nameMatchPattern | Out-Null) + $matches[0]) -replace $nameReplacePattern, "")
-        description = ((($line -match $descriptionMatchPattern | Out-Null) + $matches[0]) -replace $descriptionReplacePattern, "")
-    }
-
-    return $res
-}
-
 # Load and parse changelog configuration
 try {
     $config = (Get-Content -Path $configPath -Raw | ConvertFrom-Json).$changelogName
@@ -157,27 +134,27 @@ foreach($line in ($changelogRaw -split "\n")) {
         
         # Process "change categories" patterns
         if($log.PSObject.Properties.Value.Count -eq 0) {
-            if($regexs."change-type" -eq $true) {
-                foreach($change in $regexs."change-categories") {
-                    if($change.name -eq "__default") {
-                        continue
-                    }
-    
-                    if($entryType -eq $change.name ) {
-                        $patterns = ($change."default-pattern" -eq $true) ? $defaultPattern.patterns : $change.patterns
-
-                        $temp = makeLog $patterns $line
-    
-                        $log | Add-Member -Type NoteProperty -Name "name" -Value $temp.name
-                        $log | Add-Member -Type NoteProperty -Name "description" -Value $temp.description
-    
-                        break
-                    }
+            foreach($change in $regexs."change-categories") {
+                if($change.name -eq "__default") {
+                    continue
                 }
-            } else {
-                $temp = makeLog $defaultPattern.patterns $line
-                $log | Add-Member -Type NoteProperty -Name "name" -Value $temp.name
-                $log | Add-Member -Type NoteProperty -Name "description" -Value $temp.description
+
+                if($entryType -eq $change.name) {
+                    $patterns = ($change."default-pattern" -eq $true) ? $defaultPattern.patterns : $change.patterns
+
+                    $nameMatchPattern = $patterns.match?.name ?? ""
+                    $descriptionMatchPattern = $patterns.match?.description ?? ""
+                    $nameReplacePattern = $patterns.replace?.name ?? ""
+                    $descriptionReplacePattern = $patterns.replace?.description ?? ""
+                
+                    $name = ((($line -match $nameMatchPattern | Out-Null) + $matches[0]) -replace $nameReplacePattern, "")
+                    $description = ((($line -match $descriptionMatchPattern | Out-Null) + $matches[0]) -replace $descriptionReplacePattern, "")
+                
+                    $log | Add-Member -Type NoteProperty -Name "name" -Value $name
+                    $log | Add-Member -Type NoteProperty -Name "description" -Value $description
+
+                    break
+                }
             }
         }
 

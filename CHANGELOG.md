@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.2.1] - 2025-06-17
+
+### Refactored
+- Completed the change-type logic refactor by removing redundant use of `makeLog` in favor of inline extraction.
+
 ## [2.2.0] - 2025-06-17
 
 ### Enhanced
