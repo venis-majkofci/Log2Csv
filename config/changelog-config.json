@@ -458,5 +458,119 @@
                 "Initial release of the Azure Active Directory provider - featuring resources split out from the AzureRM Provider."
             ]
         }
+    },
+    "terraform-provider-azapi": {
+        "changelog-url": "https://raw.githubusercontent.com/Azure/terraform-provider-azapi/refs/heads/main/CHANGELOG.md",
+        "regex-patterns": {
+            "version-line": "^## v\\d+\\.\\d+\\.\\d+",
+            "version": "\\d+\\.\\d+\\.\\d+",
+            "change-categories": [
+                {
+                    "name": "__default",
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=`)[^`]+(?=`)",
+                            "description": "(?<=- ).*"
+                        }
+                    }
+                },
+                {
+                    "name": "N/D",
+                    "name-pattern": "__nd",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=`)[^`]+(?=`)",
+                            "description": "^\\* .*"
+                        },
+                        "replace": {
+                            "description": "^\\* "
+                        }
+                    }
+                },
+                {
+                    "name": "FEATURES",
+                    "name-pattern": "^FEATURES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "- \\*\\*(.*?)\\*\\*:",
+                            "description": ".*"
+                        },
+                        "replace": {
+                            "name": "[*:-]",
+                            "description": "- \\*\\*(.*?)\\*\\*:"
+                        }
+                    }
+                },
+                {
+                    "name": "ENHANCEMENTS",
+                    "name-pattern": "^ENHANCEMENTS$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "- `(.*?)`",
+                            "description": ".*"
+                        },
+                        "replace": {
+                            "name": "[`-]",
+                            "description": "- `(.*?)`"
+                        }
+                    }
+                },
+                {
+                    "name": "BUG FIXES",
+                    "name-pattern": "^BUG FIXES$",
+                    "default-pattern": false,
+                    "patterns": {
+                        "match": {
+                            "name": "^- Fix a bug",
+                            "description": ".*"
+                        },
+                        "replace": {
+                            "name": "[-]",
+                            "description": "[-]"
+                        }
+                    }
+                },
+                {
+                    "name": "IMPROVEMENTS",
+                    "name-pattern": "^IMPROVEMENTS$",
+                    "default-pattern": true,
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=`)[^`]+(?=`)",
+                            "description": "^\\* .*"
+                        },
+                        "replace": {
+                            "description": "^\\* "
+                        }
+                    }
+                },
+                {
+                    "name": "BREAKING CHANGES",
+                    "name-pattern": "^BREAKING CHANGES$",
+                    "default-pattern": true,
+                    "patterns": {
+                        "match": {
+                            "name": "(?<=`)[^`]+(?=`)",
+                            "description": "^\\* .*"
+                        },
+                        "replace": {
+                            "description": "^\\* "
+                        }
+                    }
+                },
+                {
+                    "name": "DEPRECATIONS",
+                    "name-pattern": "^DEPRECATIONS$",
+                    "default-pattern": true
+                }
+            ],
+            "specials": [],
+            "ignore": [
+                "Initial release of the Azure Active Directory provider - featuring resources split out from the AzureRM Provider."
+            ]
+        }
     }
 }

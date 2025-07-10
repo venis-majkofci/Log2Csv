@@ -30,6 +30,7 @@
 | **azurerm-v3** | 3.x | [terraform-provider-azurerm](https://github.com/hashicorp/terraform-provider-azurerm) | [AzureRM v3 Changelog](https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/CHANGELOG-v3.md) |
 | **azurerm-v4** | 4.x | [terraform-provider-azurerm](https://github.com/hashicorp/terraform-provider-azurerm) | [AzureRM v4 Changelog](https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/CHANGELOG.md) |
 | **azuread** | All | [terraform-provider-azuread](https://github.com/hashicorp/terraform-provider-azuread) | [AzureAD Changelog](https://raw.githubusercontent.com/hashicorp/terraform-provider-azuread/refs/heads/main/CHANGELOG.md) |
+| **azapi** | All | [terraform-provider-azapi](https://github.com/Azure/terraform-provider-azapi) | [AzAPI Changelog](https://raw.githubusercontent.com/Azure/terraform-provider-azapi/refs/heads/main/CHANGELOG.md) |
 | **checkov** | All | [checkov](https://github.com/bridgecrewio/checkov/) | [Checkov Changelog](https://raw.githubusercontent.com/bridgecrewio/checkov/refs/heads/main/CHANGELOG.md) |
 | **gitlab-v17** | 17.x | [GitLab](https://gitlab.com/gitlab-org/gitlab/) | [GitLab Changelog](https://gitlab.com/gitlab-org/gitlab/-/raw/master/CHANGELOG.md) |
 | **helm-chart-sonarqube** | All | [helm-chart-sonarqube](https://github.com/SonarSource/helm-chart-sonarqube) | [helm-chart-sonarqube Changelog](https://github.com/SonarSource/helm-chart-sonarqube/blob/master/charts/sonarqube/CHANGELOG.md) |
